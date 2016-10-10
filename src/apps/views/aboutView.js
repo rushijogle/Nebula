@@ -1,20 +1,27 @@
 define(function(require) {
 	'use strict';
 
-	var Backbone = require('backbone'),
-		aboutTemplate = require('text!templates/aboutTpl.html');
+	var AboutTemplate = require('template!templates/aboutTpl'),
+		BaseView = require('views/_baseView');
 
-	return Backbone.View.extend({
+	return BaseView.extend({
 
-		el: 'body',
+		el: '#innerContainer',
 
+		template: AboutTemplate,
+
+		/* // Uncomment if you want to override baseview initialize methods.
 		initialize: function() {
+			console.log("LOG: Initialize Aboutview");
+
 			this.render();
 		},
+		*/
 
-		render: function() {
-			this.$el.html(aboutTemplate);
-			return this;
+		// The `onRender` method gets called after render method. This method is optional.
+		onRender: function() {
+			console.log("LOG: Executed After Aboutview Render Method");
 		}
+		
 	});
 });

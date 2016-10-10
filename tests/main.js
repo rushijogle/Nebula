@@ -5,7 +5,7 @@ requirejs.config({
     /***
      * The path where your JavaScripts files are located.
      */
-    baseUrl: './apps/',
+    baseUrl: '../src/apps/',
 
     /***
      * Path config is also part of Require and allows to define paths for vendors
@@ -49,17 +49,4 @@ requirejs.config({
             exports: 'bootstrap'
         }
     }
-});
-
-/*** Load app.js to initialize your application module. ***/
-require(['app', 'router/router', 'core'], function(AppView, Router, Core) {
-    var appView = Core.create({}, 'AppView', AppView);
-    appView.render();
-
-    /***
-     * The router now has a copy of all main appview
-     */
-    Router.initialize({
-        appView: appView
-    });
 });
